@@ -15,8 +15,19 @@ module.exports = {
 
   module: {
     loaders: [
-      { test: /\.js/, loader: 'babel?cacheDirectory', exclude: /node_modules/ },
-      { test: /\.scss$/, loaders: ['style-loader', 'css-loader?modules&localIdentName=[name]__[local]___[hash:base64:5]', 'sass'] },
+      { 
+        test: /\.js/, 
+        loader: 'babel', 
+        exclude: /node_modules/,
+        query: {
+          presets: ['react', 'es2015'],
+          cacheDirectory: true
+        } 
+      },
+      { 
+        test: /\.scss$/, 
+        loaders: ['style-loader', 'css-loader?modules&localIdentName=[name]__[local]___[hash:base64:5]', 'sass'] 
+      },
     ]
   },
 
